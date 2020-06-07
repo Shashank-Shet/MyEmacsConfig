@@ -58,6 +58,19 @@
 (use-package which-key
   :ensure t )
 
+(use-package ido-vertical-mode
+  :ensure t
+  :init
+  (ido-vertical-mode 1)
+  :config
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+
+(use-package smex
+  :ensure t
+  :init (smex-initialize)
+  :bind
+  ("M-x" . smex))
+
 ;; Disable the scroll bar, menu bar and the tool bar
 (menu-bar-mode -1)
 (tool-bar-mode -1)
