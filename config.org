@@ -1,0 +1,94 @@
+* Company mode for completion and prompting
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+    :ensure t
+    :init
+    (global-company-mode t)
+    :config
+    (setq company-idle-delay 0.3)
+    :bind (:map company-active-map)
+    ("C-n" . company-select-next)
+    ("C-p" . company-select-previous))
+#+END_SRC
+
+* Highlight Parentheses mode for highlighting mathhing parentheses up 6 levels in depth
+#+BEGIN_SRC emacs-lisp
+(use-package highlight-parentheses
+  :ensure t
+  :init
+  (global-highlight-parentheses-mode t))
+#+END_SRC
+
+* Default theme of choice
+** The broad theme used is Zenburn, but with some customisations, the zenburn-custom theme is loaded
+#+BEGIN_SRC emacs-lisp
+(use-package zenburn-theme
+  :ensure t
+  :config
+  (load-theme 'zenburn-custom t))
+#+END_SRC
+
+** Spaceline package modeline to change the default modeline. Further configurations incoming.
+#+BEGIN_SRC  emacs-lisp
+(use-package spaceline
+  :ensure t
+  :init
+  (require 'spaceline-config)
+  :config
+  (spaceline-emacs-theme))
+#+END_SRC
+
+* Latex related packages
+** Auctex
+#+BEGIN_SRC emacs-lisp
+(use-package auctex
+   :ensure t
+   :defer t )
+#+END_SRC
+
+** Full functionality  to be discovered...
+#+BEGIN_SRC emacs-lisp
+(use-package latex-preview-pane
+  :ensure t )
+#+END_SRC
+
+* Ease of usage tweaks
+** Key binding prompt: *which-key*
+#+BEGIN_SRC emacs-lisp
+(use-package which-key
+  :ensure t )
+#+END_SRC
+
+** *ido-vertical-mode*
+#+BEGIN_SRC emacs-lisp
+(use-package ido-vertical-mode
+  :ensure t
+  :init
+  (ido-vertical-mode 1)
+  :config
+  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+#+END_SRC
+
+** M-x prompt in list view: *smex*
+#+BEGIN_SRC emacs-lisp
+(use-package smex
+  :ensure t
+  :init (smex-initialize)
+  :bind
+  ("M-x" . smex))
+#+END_SRC
+
+** A small temporary highlight to find current line when switching buffers: *beacon*
+#+BEGIN_SRC emacs-lisp
+(use-package beacon
+  :ensure t
+  :init (beacon-mode 1))
+#+END_SRC
+
+** Make org-mode pretty: *org-bullets*
+#+BEGIN_SRC emacs-lisp
+  (use-package org-bullets
+    :ensure t
+    :init
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+#+END_SRC

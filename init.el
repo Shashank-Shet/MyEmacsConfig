@@ -21,55 +21,61 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package company
-  :ensure t
-  :init
-  (global-company-mode t)
-  :config
-  (setq company-idle-delay 0.3)
-  :bind (:map company-active-map)
-  ("C-n" . company-select-next)
-  ("C-p" . company-select-previous))
+(org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
 
-(use-package highlight-parentheses
-  :ensure t
-  :init
-  (global-highlight-parentheses-mode t))
+;; (use-package company
+;;   :ensure t
+;;   :init
+;;   (global-company-mode t)
+;;   :config
+;;   (setq company-idle-delay 0.3)
+;;   :bind (:map company-active-map)
+;;   ("C-n" . company-select-next)
+;;   ("C-p" . company-select-previous))
 
-(use-package zenburn-theme
-  :ensure t
-  :config
-  (load-theme 'zenburn-custom t))
+;; (use-package highlight-parentheses
+;;   :ensure t
+;;   :init
+;;   (global-highlight-parentheses-mode t))
 
-(use-package spaceline
-  :ensure t
-  :init
-  (require 'spaceline-config)
-  :config
-  (spaceline-emacs-theme))
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'zenburn-custom t))
 
-(use-package latex-preview-pane
-  :ensure t )
+;; (use-package spaceline
+;;   :ensure t
+;;   :init
+;;   (require 'spaceline-config)
+;;   :config
+;;   (spaceline-emacs-theme))
 
-(use-package auctex
-   :ensure t
-   :defer t )
+;; (use-package latex-preview-pane
+;;   :ensure t )
+
+;; (use-package auctex
+;;    :ensure t
+;;    :defer t )
   
-(use-package which-key
-  :ensure t )
+;; (use-package which-key
+;;   :ensure t )
 
-(use-package ido-vertical-mode
-  :ensure t
-  :init
-  (ido-vertical-mode 1)
-  :config
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
+;; (use-package ido-vertical-mode
+;;   :ensure t
+;;   :init
+;;   (ido-vertical-mode 1)
+;;   :config
+;;   (setq ido-vertical-define-keys 'C-n-and-C-p-only))
 
-(use-package smex
-  :ensure t
-  :init (smex-initialize)
-  :bind
-  ("M-x" . smex))
+;; (use-package smex
+;;   :ensure t
+;;   :init (smex-initialize)
+;;   :bind
+;;   ("M-x" . smex))
+
+;; (use-package beacon
+;;   :ensure t
+;;   :init (beacon-mode 1))
 
 ;; Disable the scroll bar, menu bar and the tool bar
 (menu-bar-mode -1)
@@ -80,4 +86,4 @@
 (global-hl-line-mode t)
 (global-linum-mode t)
 (electric-pair-mode t)
-(ido-mode t)
+;; (ido-mode t)

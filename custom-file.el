@@ -39,7 +39,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (smex ido-vertical-mode which-key zenburn use-package atom-one-dark-theme latex-preview-pane auctex spaceline highlight-parentheses company spacemacs-theme material-theme zenburn-theme humanoid-themes dash cmake-ide)))
+    (org-bullets beacon smex ido-vertical-mode which-key zenburn use-package atom-one-dark-theme latex-preview-pane auctex spaceline highlight-parentheses company spacemacs-theme material-theme zenburn-theme humanoid-themes dash cmake-ide)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(preview-transparent-color (quote (default :background)))
  '(vc-annotate-background "#2B2B2B")

@@ -5,3 +5,5 @@ elpa
 games
 thumbs
 auto-save-list
+smex-items
+config.el
