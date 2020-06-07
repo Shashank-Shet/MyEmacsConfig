@@ -68,20 +68,3 @@
 (global-linum-mode t)
 (electric-pair-mode t)
 (ido-mode t)
-
-;; Current theme in use
-;; (load-theme 'zenburn-custom t)
-
-
-;; company-active-map is not defined prior to company being loaded,
-;; with-eval-after-load deals with this problem
-;; (with-eval-after-load 'company
-;;   (define-key company-active-map (kbd "C-n") 'company-select-next)
-;;   (define-key company-active-map (kbd "C-p") 'company-select-previous)
-;;   (setq company-idle-delay 0.0)
-;;   )
-
-;; (global-company-mode t)
-
-;; (require 'spaceline-config)
-;; (spaceline-emacs-theme)
