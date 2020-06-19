@@ -11,7 +11,7 @@
     ("C-p" . company-select-previous))
 #+END_SRC
 
-* Highlight Parentheses mode for highlighting mathhing parentheses up 6 levels in depth
+* Highlight Parentheses mode for highlighting matching parentheses up 6 levels in depth
 #+BEGIN_SRC emacs-lisp
 (use-package highlight-parentheses
   :ensure t
