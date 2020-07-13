@@ -1,24 +1,22 @@
 * Company mode for completion and prompting
-#+BEGIN_SRC emacs-lisp
-  (use-package company
-    :ensure t
-    :init
-    (global-company-mode t)
-    :config
-    (setq company-idle-delay 0.3)
-    :bind (:map company-active-map)
-    ("C-n" . company-select-next)
-    ("C-p" . company-select-previous))
-#+END_SRC
-
+  #+BEGIN_SRC emacs-lisp
+    (use-package company
+      :ensure t
+      :init
+      (global-company-mode t)
+      :config
+      (setq company-idle-delay 0.3)
+      :bind (:map company-active-map)
+      ("C-n" . company-select-next)
+      ("C-p" . company-select-previous))
+  #+END_SRC
 * Highlight Parentheses mode for highlighting matching parentheses up 6 levels in depth
-#+BEGIN_SRC emacs-lisp
-(use-package highlight-parentheses
-  :ensure t
-  :init
-  (global-highlight-parentheses-mode t))
-#+END_SRC
-
+  #+BEGIN_SRC emacs-lisp
+    (use-package highlight-parentheses
+      :ensure t
+      :init
+      (global-highlight-parentheses-mode t))
+  #+END_SRC
 * Default theme of choice
 ** The broad theme used is Zenburn, but with some customisations, the zenburn-custom theme is loaded
 #+BEGIN_SRC emacs-lisp
@@ -39,36 +37,37 @@
 #+END_SRC
 
 * Latex related packages
-** Auctex
-#+BEGIN_SRC emacs-lisp
-(use-package auctex
-   :ensure t
-   :defer t )
-#+END_SRC
+** *Auctex*
+   #+BEGIN_SRC emacs-lisp
+     (use-package auctex
+       :ensure t
+       :defer t)
+   #+END_SRC
+** *Latex preview pane*
+   #+BEGIN_SRC emacs-lisp
+     (use-package latex-preview-pane
+       :ensure t)
 
-** Full functionality  to be discovered...
-#+BEGIN_SRC emacs-lisp
-(use-package latex-preview-pane
-  :ensure t )
-#+END_SRC
-
+   #+END_SRC
 * Ease of usage tweaks
-** Which-key: Key binding prompt
+** *Which-key*: Key binding prompt
    #+BEGIN_SRC emacs-lisp
      (use-package which-key
        :ensure t
        :init (which-key-mode))
    #+END_SRC
 
-** Ido Mode
+** *Ido Mode*
    #+BEGIN_SRC emacs-lisp
      (setq ido-enable-flex-matching nil)
      (setq ido-create-new-buffer 'always)
      (setq ido-everywhere t)
      (ido-mode 1)
+     (global-set-key (kbd "C-x C-b") 'ido-switch-buffer)
    #+END_SRC
 
-** Ido Vertical Mode (Requires Ido mode enabled)
+** *Ido Vertical Mode* (Requires Ido mode enabled)
+
    #+BEGIN_SRC emacs-lisp
      (use-package ido-vertical-mode
        :ensure t
@@ -77,7 +76,11 @@
      (setq ido-vertical-define-keys 'C-n-and-C-p-only)
    #+END_SRC
 
-** Smex: M-x prompt in list view
+** *Ibuffer*: More comprehensive buffer management
+   #+BEGIN_SRC emacs-lisp
+     (global-set-key (kbd "C-x b") 'ibuffer)
+   #+END_SRC
+** *Smex*: M-x prompt in list view
     #+BEGIN_SRC emacs-lisp
       (use-package smex
         :ensure t
@@ -85,20 +88,25 @@
         :bind ("M-x" . smex))
     #+END_SRC
 
-** Beacon: A small temporary highlight to find current line when switching buffers
+** *Beacon*: A small temporary highlight to find current line when switching buffers
    #+BEGIN_SRC emacs-lisp
      (use-package beacon
        :ensure t
        :init (beacon-mode 1))
    #+END_SRC
 
-** Org-bullets:
-   #+BEGIN_SRC emacs-lisp
-     (use-package org-bullets
-        :ensure t
-        :init
-        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-   #+END_SRC
+** Beautifying ORG-mode 
+*** *Org bullets*
+     #+BEGIN_SRC emacs-lisp
+       (use-package org-bullets
+          :ensure t
+          :init
+          (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+     #+END_SRC
+*** Misc
+    #+BEGIN_SRC emacs-lisp
+      (setq org-hide-emphasis-markers t)
+    #+END_SRC
 
 
 
