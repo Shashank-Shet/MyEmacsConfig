@@ -53,43 +53,52 @@
 #+END_SRC
 
 * Ease of usage tweaks
-** Key binding prompt: *which-key*
-#+BEGIN_SRC emacs-lisp
-(use-package which-key
-  :ensure t )
-#+END_SRC
+** Which-key: Key binding prompt
+   #+BEGIN_SRC emacs-lisp
+     (use-package which-key
+       :ensure t
+       :init (which-key-mode))
+   #+END_SRC
 
-** *ido-vertical-mode*
-#+BEGIN_SRC emacs-lisp
-(use-package ido-vertical-mode
-  :ensure t
-  :init
-  (ido-vertical-mode 1)
-  :config
-  (setq ido-vertical-define-keys 'C-n-and-C-p-only))
-#+END_SRC
+** Ido Mode
+   #+BEGIN_SRC emacs-lisp
+     (setq ido-enable-flex-matching nil)
+     (setq ido-create-new-buffer 'always)
+     (setq ido-everywhere t)
+     (ido-mode 1)
+   #+END_SRC
 
-** M-x prompt in list view: *smex*
-#+BEGIN_SRC emacs-lisp
-(use-package smex
-  :ensure t
-  :init (smex-initialize)
-  :bind
-  ("M-x" . smex))
-#+END_SRC
+** Ido Vertical Mode (Requires Ido mode enabled)
+   #+BEGIN_SRC emacs-lisp
+     (use-package ido-vertical-mode
+       :ensure t
+       :init
+       (ido-vertical-mode 1))
+     (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+   #+END_SRC
 
-** A small temporary highlight to find current line when switching buffers: *beacon*
-#+BEGIN_SRC emacs-lisp
-(use-package beacon
-  :ensure t
-  :init (beacon-mode 1))
-#+END_SRC
+** Smex: M-x prompt in list view
+    #+BEGIN_SRC emacs-lisp
+      (use-package smex
+        :ensure t
+        :init (smex-initialize)
+        :bind ("M-x" . smex))
+    #+END_SRC
 
-** Make org-mode pretty: *org-bullets*
-#+BEGIN_SRC emacs-lisp
-  (use-package org-bullets
-    :ensure t
-    :init
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-#+END_SRC
+** Beacon: A small temporary highlight to find current line when switching buffers
+   #+BEGIN_SRC emacs-lisp
+     (use-package beacon
+       :ensure t
+       :init (beacon-mode 1))
+   #+END_SRC
+
+** Org-bullets:
+   #+BEGIN_SRC emacs-lisp
+     (use-package org-bullets
+        :ensure t
+        :init
+        (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+   #+END_SRC
+
+
 
