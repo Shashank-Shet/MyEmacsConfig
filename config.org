@@ -1,4 +1,5 @@
 * Company mode for completion and prompting
+
   #+BEGIN_SRC emacs-lisp
     (use-package company
       :ensure t
@@ -10,45 +11,62 @@
       ("C-n" . company-select-next)
       ("C-p" . company-select-previous))
   #+END_SRC
+
 * Highlight Parentheses mode for highlighting matching parentheses up 6 levels in depth
+
   #+BEGIN_SRC emacs-lisp
     (use-package highlight-parentheses
       :ensure t
       :init
       (global-highlight-parentheses-mode t))
   #+END_SRC
+
 * Default theme of choice
 ** The broad theme used is Zenburn, but with some customisations, the zenburn-custom theme is loaded
-#+BEGIN_SRC emacs-lisp
-(use-package zenburn-theme
-  :ensure t
-  :config
-  (load-theme 'zenburn-custom t))
-#+END_SRC
+   #+BEGIN_SRC emacs-lisp
+   (use-package zenburn-theme
+     :ensure t
+     :config
+     (load-theme 'zenburn-custom t))
+   #+END_SRC
+
+  When using spacemacs theme in org-mode, make sure to add a line between each
+  heading/bullet item and the content that follows it, Or else the highlights
+  that follow are very unpleasant.
+ # #+BEGIN_SRC emacs-lisp
+ # (use-package spacemacs-common
+ #   :ensure spacemacs-theme
+ #   :config
+ #   (load-theme 'spacemacs-light t))
+ # #+END_SRC
 
 ** Spaceline package modeline to change the default modeline. Further configurations incoming.
-#+BEGIN_SRC  emacs-lisp
-(use-package spaceline
-  :ensure t
-  :init
-  (require 'spaceline-config)
-  :config
-  (spaceline-emacs-theme))
-#+END_SRC
+ #+BEGIN_SRC  emacs-lisp
+ (use-package spaceline
+   :ensure t
+   :init
+   (require 'spaceline-config)
+   :config
+   (spaceline-emacs-theme))
+ #+END_SRC
 
 * Latex related packages
 ** *Auctex*
+
    #+BEGIN_SRC emacs-lisp
      (use-package auctex
        :ensure t
        :defer t)
    #+END_SRC
+
 ** *Latex preview pane*
-   #+BEGIN_SRC emacs-lisp
+ 
+  #+BEGIN_SRC emacs-lisp
      (use-package latex-preview-pane
        :ensure t)
 
    #+END_SRC
+
 * Ease of usage tweaks
 ** *Which-key*: Key binding prompt
    #+BEGIN_SRC emacs-lisp
@@ -77,9 +95,11 @@
    #+END_SRC
 
 ** *Ibuffer*: More comprehensive buffer management
-   #+BEGIN_SRC emacs-lisp
+ 
+  #+BEGIN_SRC emacs-lisp
      (global-set-key (kbd "C-x b") 'ibuffer)
    #+END_SRC
+
 ** *Smex*: M-x prompt in list view
     #+BEGIN_SRC emacs-lisp
       (use-package smex
@@ -97,16 +117,72 @@
 
 ** Beautifying ORG-mode 
 *** *Org bullets*
+
      #+BEGIN_SRC emacs-lisp
        (use-package org-bullets
-          :ensure t
-          :init
-          (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
-     #+END_SRC
+	 :ensure t
+	 :init
+	 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+     #+END_SRC 
+
 *** Misc
+
     #+BEGIN_SRC emacs-lisp
       (setq org-hide-emphasis-markers t)
     #+END_SRC
 
+    #+BEGIN_SRC emacs-lisp
+      (font-lock-add-keywords 'org-mode
+			      '(("^ *\\([-]\\) "
+				 (0 (prog1 ()
+				      (compose-region (match-beginning 1)
+						      (match-end 1) "•")
+				      )))))
+    #+END_SRC
+
+    #+BEGIN_SRC emacs-lisp
+      (let* ((variable-tuple
+	      (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
+		    ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+		    ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
+		    ((x-list-fonts "Verdana")         '(:font "Verdana"))
+		    ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
+		    (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
+	     (base-font-color     (face-foreground 'default nil 'default))
+	     (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+  
+	(custom-theme-set-faces
+	 'user
+	 `(org-level-8 ((t (,@headline ,@variable-tuple))))
+	 `(org-level-7 ((t (,@headline ,@variable-tuple))))
+	 `(org-level-6 ((t (,@headline ,@variable-tuple))))
+	 `(org-level-5 ((t (,@headline ,@variable-tuple))))
+	 `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+	 `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.2))))
+	 `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.35))))
+	 `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.5))))
+	 `(org-document-title ((t (,@headline ,@variable-tuple :height 1.75 :underline nil))))))
+    #+END_SRC
+
+    
+    #+BEGIN_SRC emacs-lisp
+      (custom-theme-set-faces
+       'user
+       '(org-block ((t (:inherit fixed-pitch))))
+       '(org-code ((t (:inherit (shadow fixed-pitch)))))
+       '(org-document-info ((t (:foreground "dark orange"))))
+       '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+       '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+       '(org-link ((t (:foreground "royal blue" :underline t))))
+       '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+       '(org-property-value ((t (:inherit fixed-pitch))) t)
+       '(org-special-keyword ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+       '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
+       '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+       '(org-verbatim ((t (:inherit (shadow fixed-pitch))))))
+
+      (add-hook 'org-mode-hook 'visual-line-mode)
+    #+END_SRC
 
 
+    
