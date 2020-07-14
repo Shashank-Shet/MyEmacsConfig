@@ -90,7 +90,7 @@
  '(org-table ((t (:inherit fixed-pitch :foreground "#83a598"))))
  '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
  '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
- '(region ((((class color) (min-colors 89)) (:background "#2B2B2B" :extend t)) (t :inverse-video t)))
+;; '(region ((((class color) (min-colors 89)) (:background "#2B2B2B" :extend t)) (t :inverse-video t)))
  '(tabbar-selected ((t (:background "#3F3F3F" :foreground "#DCDCCC" :box (:line-width -1 :style released-button)))))
  '(tabbar-selected-modified ((t (:inherit tabbar-default :foreground "green" :box (:line-width -1 :style released-button)))))
  '(tabbar-unselected ((t (:background "#4F4F4F" :foreground "#DCDCCC" :box (:line-width -1 :style pressed-button))))))
