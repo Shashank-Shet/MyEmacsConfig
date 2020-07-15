@@ -29,5 +29,5 @@
 
 ;; Line number and highlight always ON
 (global-hl-line-mode t)
-(global-linum-mode t)
+(global-display-line-numbers-mode t)  ;; Superior to linum mode
 (electric-pair-mode t)

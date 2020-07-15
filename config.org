@@ -126,7 +126,7 @@
      #+END_SRC 
 
 *** Misc
-
+**** Bold, Italic, strikethrough and similar emhasis markers are hidden
     #+BEGIN_SRC emacs-lisp
       (setq org-hide-emphasis-markers t)
     #+END_SRC
@@ -140,12 +140,11 @@
 				      )))))
     #+END_SRC
 
+****  Default Org-mode font-sizes and font faces
+
     #+BEGIN_SRC emacs-lisp
       (let* ((variable-tuple
 	      (cond ((x-list-fonts "ETBembo")         '(:font "ETBembo"))
-		    ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
-		    ((x-list-fonts "Lucida Grande")   '(:font "Lucida Grande"))
-		    ((x-list-fonts "Verdana")         '(:font "Verdana"))
 		    ((x-family-fonts "Sans Serif")    '(:family "Sans Serif"))
 		    (nil (warn "Cannot find a Sans Serif Font.  Install Source Sans Pro."))))
 	     (base-font-color     (face-foreground 'default nil 'default))
@@ -183,6 +182,3 @@
 
       (add-hook 'org-mode-hook 'visual-line-mode)
     #+END_SRC
-
-
-    
