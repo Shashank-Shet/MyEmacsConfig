@@ -7,3 +7,4 @@ thumbs
 auto-save-list
 smex-items
 config.el
+gui_config.el

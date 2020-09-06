@@ -23,6 +23,12 @@
 
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
 
+(if
+    (display-graphic-p)
+    (org-babel-load-file (expand-file-name "~/.emacs.d/gui_config.org"))
+  ()
+  )
+
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
@@ -31,3 +37,5 @@
 (global-hl-line-mode t)
 (global-display-line-numbers-mode t)  ;; Superior to linum mode
 (electric-pair-mode t)
+
+;; (setq confirm-kill-emacs 'yes-or-no-p)

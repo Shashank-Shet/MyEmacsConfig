@@ -1,5 +1,5 @@
 (deftheme zenburn-custom
-  "Created 2020-07-15.")
+  "Created 2020-07-24.")
 
 (custom-theme-set-faces
  'zenburn-custom
@@ -46,7 +46,8 @@
  '(match ((t (:weight bold :foreground "#DFAF8F" :background "#2B2B2B"))))
  '(next-error ((t (:inherit (region)))))
  '(query-replace ((t (:inherit (isearch)))))
+ '(org-block ((t (:background "#3f3f3f" :inherit fixed-pitch))))
  '(default ((t (:family "Ubuntu Mono" :foundry "DAMA" :width normal :height 128 :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil :foreground "AntiqueWhite1" :background "#3F3F3F" :stipple nil :inherit nil))))
- '(org-block ((t (:background "#3f3f3f" :inherit fixed-pitch)))))
+ '(org-ellipsis ((t (:foreground "#E0CF9F" :underline nil)))))
 
 (provide-theme 'zenburn-custom)
